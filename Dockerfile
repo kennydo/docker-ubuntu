@@ -7,6 +7,8 @@ ENV LANG en_US.UTF-8
 ENV LANGUAGE en_US:en
 ENV LC_ALL en_US.UTF-8
 
+ENV DOCKERIZE_VERSION v0.4.0
+
 RUN apt-get update \
   && apt-get install -y software-properties-common \
   && add-apt-repository -y ppa:maxmind/ppa \
@@ -42,4 +44,7 @@ RUN apt-get update \
     python3.5 \
     python3.5-dev \
     python3.5-venv \
-    zlib1g-dev
+    zlib1g-dev \
+  && wget https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSION/dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz \
+  && tar -C /usr/local/bin -xzvf dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz \
+  && rm dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz
