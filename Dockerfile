@@ -35,6 +35,7 @@ RUN apt-get update \
     libxslt1-dev \
     mmdb-bin \
     mysql-client \
+    postgresql-client \
     python3 \
     python3-dev \
     python3-pip \
