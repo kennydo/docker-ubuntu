@@ -22,7 +22,6 @@ RUN apt-get update \
   && apt-get install -y \
     curl \
     git-all \
-    jq \
     language-pack-id \
     libcurl4-openssl-dev \
     libffi-dev \
@@ -52,5 +51,7 @@ RUN apt-get update \
   && wget https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSION/dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz \
   && tar -C /usr/local/bin -xzvf dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz \
   && rm dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz \
+  && wget https://github.com/stedolan/jq/releases/download/jq-1.5/jq-linux64 -O /usr/local/bin/jq \
+  && chmod a+x /usr/local/bin/jq \
   && curl https://bootstrap.pypa.io/get-pip.py | python3.5 \
   && pip3.5 install --upgrade --user awscli
