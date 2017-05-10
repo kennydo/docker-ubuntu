@@ -18,7 +18,9 @@ RUN apt-get update \
   && add-apt-repository -y "deb [arch=amd64] http://packages.confluent.io/deb/3.1 stable main" \
   && apt-get update \
   && apt-get install -y \
+    curl \
     git-all \
+    jq \
     language-pack-id \
     libcurl4-openssl-dev \
     libffi-dev \
