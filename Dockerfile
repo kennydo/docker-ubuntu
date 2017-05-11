@@ -41,9 +41,9 @@ RUN apt-get update \
     mmdb-bin \
     mysql-client \
     postgresql-client \
-    python3.5 \
-    python3.5-dev \
-    python3.5-venv \
+    python3.6 \
+    python3.6-dev \
+    python3.6-venv \
     zlib1g-dev \
   && apt-get clean
 
