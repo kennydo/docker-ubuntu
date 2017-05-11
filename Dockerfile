@@ -9,7 +9,7 @@ ENV LC_ALL en_US.UTF-8
 
 ENV DOCKERIZE_VERSION v0.4.0
 
-ENV PATH "/root/.local/bin:${PATH}"
+ENV PATH "/opt/aws_cli_venv/bin:${PATH}"
 
 RUN apt-get update \
   && apt-get install -y software-properties-common \
@@ -48,10 +48,15 @@ RUN apt-get update \
     python3.5-dev \
     python3.5-venv \
     zlib1g-dev \
-  && wget https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSION/dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz \
+  && apt-get clean
+
+RUN wget https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSION/dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz \
   && tar -C /usr/local/bin -xzvf dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz \
-  && rm dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz \
-  && wget https://github.com/stedolan/jq/releases/download/jq-1.5/jq-linux64 -O /usr/local/bin/jq \
+  && rm dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz
+
+RUN wget https://github.com/stedolan/jq/releases/download/jq-1.5/jq-linux64 -O /usr/local/bin/jq \
   && chmod a+x /usr/local/bin/jq \
-  && curl https://bootstrap.pypa.io/get-pip.py | python3.5 \
-  && pip3.5 install --upgrade --user awscli
+
+RUN python3.5 -m venv /opt/aws_cli_venv \
+  && /opt/aws_cli_venv/bin/pip install --upgrade --user awscli \
+  && rm -r /root/.cache/pip
