@@ -41,9 +41,6 @@ RUN apt-get update \
     mmdb-bin \
     mysql-client \
     postgresql-client \
-    python3 \
-    python3-dev \
-    python3-pip \
     python3.5 \
     python3.5-dev \
     python3.5-venv \
