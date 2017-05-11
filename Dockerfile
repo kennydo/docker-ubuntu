@@ -55,7 +55,7 @@ RUN wget https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSI
   && rm dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz
 
 RUN wget https://github.com/stedolan/jq/releases/download/jq-1.5/jq-linux64 -O /usr/local/bin/jq \
-  && chmod a+x /usr/local/bin/jq \
+  && chmod a+x /usr/local/bin/jq
 
 RUN python3.5 -m venv /opt/aws_cli_venv \
   && /opt/aws_cli_venv/bin/pip install --upgrade --user awscli \
