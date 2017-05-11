@@ -9,7 +9,7 @@ ENV LC_ALL en_US.UTF-8
 
 ENV DOCKERIZE_VERSION v0.4.0
 
-ENV PATH "/opt/aws_cli_venv/bin:${PATH}"
+ENV PATH "${PATH}:/opt/aws_cli_venv/bin"
 
 RUN apt-get update \
   && apt-get install -y software-properties-common \
